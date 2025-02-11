@@ -1,50 +1,41 @@
-# Welcome to your Expo app 👋
+# Communalists Mobile
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Quickstart
 
-## Get started
+First, copy and run the following:
 
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```sh
+git clone git@github.com:Communalists/mobile.git
+cd web
+git submodule update --init --recursive
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+This clones the repository and recursively installs the submodule repositories.
 
-## Learn more
+Then, go through the below items and follow their installation guides:
 
-To learn more about developing your project with Expo, look at the following resources:
+- [Docker](https://docs.docker.com/engine/install/)
+- [Docker Desktop](https://docs.docker.com/desktop/)
+- [Expo Go](https://docs.expo.dev/get-started/set-up-your-environment/)
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+After installation, run `docker login`.
 
-## Join the community
+After login, copy the `.default.env` file and rename it to `.env`, you shouldn't have to change any of the values inside unless you're deploying for production.
 
-Join our community of developers creating universal apps.
+Now, go to "Run and Debug" on the left side-bar of your VSCode. It should open the "Run and Debug" menu and at the top the dropdown should automatically say "Full". Click on the green play button and it should start up the application, it should pull up the bottom panel with a terminal displaying the containers being built and ran. If the bottom panel pulls up and it's on "Debug Console", click on "Terminal".
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Then, click on the "+" button to the right, on the same row as "Problems", "Output", Debug Console", etc. This should open a new terminal where you then need to run the following:
+
+```sh
+npm install
+
+# initializes the database with prisma
+npm run init
+
+# generates the typescript types from prisma
+npm run generate
+```
+
+Then, you can run `npm run start` to start the Expo dev server. To see the application you can open your camera and scan the terminal QR code if you're IOS., this should open in Expo Go. (TODO: Add Android steps). The application should update when you make changes but it doesn't you can press "r" in the terminal and it'll refresh.
+
+After you're done running, click on the red square to stop the application. DO NOT CTRL+C, if you do this won't shut down the Docker containers correctly and might cause your machine to slow down later down the line.
