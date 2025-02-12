@@ -1,5 +1,6 @@
-import { Image, StyleSheet, TextInput } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import { Button } from "@/shared/components/atoms/Button";
+import { TextInput } from '@/shared/components/atoms/TextInput';
 
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
@@ -52,8 +53,18 @@ export default function UserScreen() {
             }>
             <ThemedView style={styles.titleContainer}>
                 <ThemedText type="title">Create a user!</ThemedText>
-                <TextInput style={styles.textInput} autoComplete={'name'} placeholder={"Name"} onChangeText={setName} />
-                <TextInput style={styles.textInput} autoComplete={'email'} placeholder={"Email"} onChangeText={setEmail} />
+                <TextInput
+                    autoComplete={"name"}
+                    placeholder={"Name"}
+                    accessibilityLabel={"Name of user"}
+                    onChangeText={setName}
+                />
+                <TextInput
+                    autoComplete={"email"}
+                    placeholder={"Email"}
+                    accessibilityLabel={"Email of user"}
+                    onChangeText={setEmail}
+                />
                 <Button onPress={onFormSubmit} ariaLabel={"Submit new user form."} label={"Submit"} />
             </ThemedView>
             <ThemedView>
@@ -78,8 +89,5 @@ const styles = StyleSheet.create({
         bottom: 0,
         left: 0,
         position: 'absolute',
-    },
-    textInput: {
-        color: 'white'
     }
 });
