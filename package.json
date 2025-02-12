@@ -4,15 +4,16 @@
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
+    "start:android": "expo start --android",
+    "start:ios": "expo start --ios",
+    "start:web": "expo start --web",
+    "prisma:init": "prisma migrate dev --name init && prisma generate",
+    "prisma:pull": "prisma db pull",
+    "prisma:generate": "prisma generate",
+    "prisma:studio": "prisma studio",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
     "test": "jest --watchAll",
-    "lint": "expo lint",
-    "db-pull": "prisma db pull",
-    "init": "prisma migrate dev --name init",
-    "generate": "prisma generate"
+    "lint": "expo lint"
   },
   "jest": {
     "preset": "jest-expo"

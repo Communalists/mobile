@@ -6,7 +6,7 @@ First, copy and run the following:
 
 ```sh
 git clone git@github.com:Communalists/mobile.git
-cd web
+cd mobile
 git submodule update --init --recursive
 ```
 
@@ -30,10 +30,7 @@ Then, click on the "+" button to the right, on the same row as "Problems", "Outp
 npm install
 
 # initializes the database with prisma
-npm run init
-
-# generates the typescript types from prisma
-npm run generate
+npm run prisma:init
 ```
 
 Then, you can run `npm run start` to start the Expo dev server. To see the application you can open your camera and scan the terminal QR code if you're IOS., this should open in Expo Go. (TODO: Add Android steps). The application should update when you make changes but it doesn't you can press "r" in the terminal and it'll refresh.
