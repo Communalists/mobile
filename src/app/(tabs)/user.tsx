@@ -1,6 +1,6 @@
-import { Image, StyleSheet, Platform, TextInput, Button, Text } from 'react-native';
+import { Image, StyleSheet, TextInput } from 'react-native';
+import { Button } from "@/shared/components/atoms/Button";
 
-import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -54,7 +54,7 @@ export default function UserScreen() {
                 <ThemedText type="title">Create a user!</ThemedText>
                 <TextInput style={styles.textInput} autoComplete={'name'} placeholder={"Name"} onChangeText={setName} />
                 <TextInput style={styles.textInput} autoComplete={'email'} placeholder={"Email"} onChangeText={setEmail} />
-                <Button onPress={onFormSubmit} title={"Submit"} />
+                <Button onPress={onFormSubmit} ariaLabel={"Submit new user form."} label={"Submit"} />
             </ThemedView>
             <ThemedView>
                 {users.map((user) => (
